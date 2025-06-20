@@ -7,7 +7,7 @@ import tempfile
 import os
 
 device = "cuda"
-HF_TOKEN = ""
+HF_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"]
 
 class Segment(BaseModel):
     segment: dict

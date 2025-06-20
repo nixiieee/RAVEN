@@ -1,11 +1,7 @@
 import torch
-import librosa
 import gradio as gr
-from tqdm import tqdm
-import tempfile
 import json
 import os
-import soundfile as sf
 
 from asr_service import prepare_audio, AudioConversionError, GigaamCtcInferencer
 from audio_emo_service import GigaEmotionInferencer
@@ -13,7 +9,7 @@ from video_emo_service import VideoEmotionDetectionYOLOInferencer
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-HF_TOKEN = ""
+HF_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"]
 
 def analyze(file_path: str, min_spk: int, max_spk: int, return_as_file: bool):
     try:

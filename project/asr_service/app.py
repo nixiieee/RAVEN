@@ -3,7 +3,7 @@ from asr_inference import WhisperASRInferencer, GigaamCtcInferencer, prepare_aud
 import os
 import tempfile
 
-HF_TOKEN = ""
+HF_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"]
 device = "cuda"
 
 app = FastAPI()

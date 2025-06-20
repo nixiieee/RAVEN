@@ -8,11 +8,12 @@ RUN apt-get update && \
       ffmpeg libsndfile1 && \
     rm -rf /var/lib/apt/lists/*
 
-# Символьные ссылки для удобства: python → python3, pip → pip3
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && \
     update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
+ARG HUGGINGFACEHUB_API_TOKEN
+ENV HUGGINGFACEHUB_API_TOKEN=${HUGGINGFACEHUB_API_TOKEN}
+
 WORKDIR /app
-# Копируем зависимости и ставим их один раз
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
