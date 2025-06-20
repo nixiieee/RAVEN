@@ -49,7 +49,7 @@ project
     ```bash
     HUGGINGFACEHUB_API_TOKEN=your_token_here
     ```
-## Makefile targets
+## Quickstart
 
 | Target              | Description                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------- |

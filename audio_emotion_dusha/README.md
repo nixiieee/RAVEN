@@ -1,5 +1,5 @@
 
-# `audio_emotion_dusha`: Training & Evaluation Module
+# Training & evaluation of emotion classifier module
 
 This directory contains the experimental and training pipeline for the audio emotion recognition component used in the general pipeline. It includes scripts for model training, evaluation, and data preprocessing. This is a research-focused module, not intended for production deployment.
 
