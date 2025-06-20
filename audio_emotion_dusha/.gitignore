@@ -1,0 +1,8 @@
+gigaam_train/
+gigaam-rnnt-emotion/
+logs/
+wandb/
+whisper_dusha/
+whisper-emotion-classfication-layernorm/
+whisper-large-v3-turbo-emocls/
+ved_train copy.ipynb
