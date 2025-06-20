@@ -4,7 +4,7 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 
 ---
 
-## Features
+## 🌟 Features
 
 - **STT**: Get text transcription from audio or video.
 - **Audio Emotion Recognition**: Extract emotional cues from audio using state-of-the-art pretrained open-source models.  
@@ -15,7 +15,7 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 
 ---
 
-## Prerequisites
+## 📋 Prerequisites
 
 - Git (to clone the repository)  
 - Python 3.8 or higher  
@@ -24,6 +24,9 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 
 ---
 
-## Usage 
+## 🚀 Quickstart 
 
 More about project deployment can be read [here](project/README.md).
+
+## 📫 Contact
+For questions or collaboration ideas, feel free to reach out via GitHub Issues.

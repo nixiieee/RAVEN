@@ -1,9 +1,9 @@
 
-# Inference module
+# Inference Module
 
 This directory contains the main parts used for pipeline deployments.
 
-## Project Structure
+## 📁 Project Structure
 
 ```bash
 project
@@ -38,7 +38,7 @@ project
 
 ---
 
-## Setup and Installation
+## ⚙️ Setup and Installation
 
 1. **Clone the repository**:
    ```bash
@@ -49,7 +49,7 @@ project
     ```bash
     HUGGINGFACEHUB_API_TOKEN=your_token_here
     ```
-## Quickstart
+## 🚀 Quickstart
 
 | Target              | Description                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------- |
@@ -77,7 +77,7 @@ The pipeline above is recommeneded. However the script can be run without docker
 
 ---
 
-## Usage
+## ⚙️ Usage
 
 Once the services are running, open the Gradio app in your browser at:
 ``` bash
@@ -87,7 +87,7 @@ http://localhost:7860
 - Adjust parameters (num of speakers, need for json-file output).
 - View emotion recognition and audio transcription results.
 
-## Running locally (without docker)
+## 🚀 Running locally (without docker)
 
 ### 1. Install dependencies
 

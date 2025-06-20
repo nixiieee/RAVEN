@@ -1,11 +1,11 @@
 
-# Training & evaluation of emotion classifier module
+# Training & Evaluation of Emotion Classifiers
 
 This directory contains the experimental and training pipeline for the audio emotion recognition component used in the general pipeline. It includes scripts for model training, evaluation, and data preprocessing. This is a research-focused module, not intended for production deployment.
 
 Some information about Monte Carlo methods used to evaluate one of the models (whisper small classifier) can be found [here](https://github.com/nixiieee/whisper-emotion-classifier).
 
-## Structure
+## 📁 Project Structure
 
 ```
 audio_emotion_dusha/
@@ -18,7 +18,7 @@ audio_emotion_dusha/
 ├── ved_evaluate.ipynb          # Evaluation notebook for testing models on different datasets
 ```
 
-## Setup (Local)
+## ⚙️ Setup (Local)
 
 ```bash
 uv venv --python 3.11
@@ -34,18 +34,18 @@ uv pip install -r requirements.txt
 - GigaAM classifier: ['nixiieee/gigaam-rnnt-emotion-classifier-dusha'](https://huggingface.co/nixiieee/gigaam-rnnt-emotion-classifier-dusha)
 
 
-## Notebooks
+## 📚 Notebooks
 
 * `preprocess_data.ipynb`: Used to format raw audio dataset DUSHA.
 * `ved_evaluate.ipynb`: Used for analyzing model performance and comparing different approaches.
 
-## Scripts
+## </> Scripts
 
 * `train_gigaam.py`: Trains an emotion classifier using the GigaAM architecture.
 * `train_whisper_mlp.py`: Trains an emotion classifier using encoder from Whisper and trains a separate MLP classifier.
 * `train_whisper_simple.py`: Minimal setup for training directly on Whisper encoder outputs.
 
-## Notes
+## 📝 Notes
 
 * Results from this module are intended to be exported and used in the `project/audio_emo_service/` folder for inference.
 * You can manually copy model weights or export ONNX versions depending on deployment strategy.
