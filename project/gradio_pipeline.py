@@ -1,0 +1,71 @@
+import torch
+import librosa
+import gradio as gr
+from tqdm import tqdm
+import tempfile
+import json
+import os
+import soundfile as sf
+
+from asr_service import prepare_audio, AudioConversionError, GigaamCtcInferencer
+from audio_emo_service import GigaEmotionInferencer
+from video_emo_service import VideoEmotionDetectionYOLOInferencer
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+HF_TOKEN = ""
+
+def analyze(file_path: str, min_spk: int, max_spk: int, return_as_file: bool):
+    try:
+        audio_path = prepare_audio(file_path=file_path)
+    except AudioConversionError as e:
+        raise gr.Error(str(e))
+
+    transcriber = GigaamCtcInferencer(model_name="waveletdeboshir/gigaam-ctc-with-lm",
+                                      device=device)
+    
+    records = transcriber.transcribe_file(audio_path, min_speakers=max(min_spk, 1), max_speakers=max(max_spk, 1))
+
+    audio_emotion_model = GigaEmotionInferencer(device=device)
+    records = audio_emotion_model.analyze_file(audio_path=audio_path, segments=records)
+
+    if file_path.endswith(".mp4"):
+        video_emotion_model = VideoEmotionDetectionYOLOInferencer(device=device, path_to_yolo='/home/llm_agent/video_audio_pipeline/project/video_emo_service/yolov11n-face.pt')
+        records = video_emotion_model.inference(video_path=file_path, segments=records)
+
+    os.remove(audio_path)
+    os.remove(file_path)
+
+    if return_as_file:
+        json_path = "/tmp/segments.json"
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(records, f, ensure_ascii=False, indent=2)
+        return records, json_path
+
+    return records, None
+
+def main():
+    description = (
+        "Загрузите аудио или видеофайл.\n"
+    )
+
+    iface = gr.Interface(
+        fn=analyze,
+        inputs=[
+            gr.File(type="filepath", label="Аудио (wav/mp3) или видео (mp4)"),
+            gr.Number(value=0, label="Минимальное число спикеров", precision=0),
+            gr.Number(value=1, label="Максимальное число спикеров", precision=0),
+            gr.Checkbox(label="Вернуть результат как файл", value=False),
+        ],
+        outputs=[
+            gr.JSON(label="Транскрипция"),
+            gr.File(label="Скачать JSON")
+        ],
+        title="Транскрипция и детекция эмоций аудио- и видеофайлов",
+        description=description
+    )
+
+    iface.launch()
+
+if __name__ == "__main__":
+    main()

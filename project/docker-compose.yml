@@ -1,0 +1,58 @@
+version: "3.8"
+services:
+  api:
+    build:
+      context: .
+      # cache_from:
+      #   - type=local,src=./cache/base
+      cache_to:
+        - type=local,dest=./cache/asr,mode=max
+      dockerfile: api_gateway/Dockerfile
+    ports:
+      - 7860:7860
+    depends_on:
+      - asr
+      - audio_emo
+      - video_emo
+
+  asr:
+    build:
+      context: .
+      # cache_from:
+      #   - type=local,src=./cache/base
+      cache_to:
+        - type=local,dest=./cache/asr,mode=max
+      dockerfile: asr_service/Dockerfile
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8000"
+
+  audio_emo:
+    build:
+      context: .
+      # cache_from:
+      #   - type=local,src=./cache/base
+      cache_to:
+        - type=local,dest=./cache/asr,mode=max
+      dockerfile: audio_emo_service/Dockerfile
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8001"
+
+  video_emo:
+    build:
+      context: .
+      # cache_from:
+      #   - type=local,src=./cache/base
+      cache_to:
+        - type=local,dest=./cache/asr,mode=max
+      dockerfile: video_emo_service/Dockerfile
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8002"
