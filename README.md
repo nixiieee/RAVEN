@@ -7,11 +7,9 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 ## 🌟 Features
 
 - **STT**: Get text transcription from audio or video.
-- **Audio Emotion Recognition**: Extract emotional cues from audio using state-of-the-art pretrained open-source models.  
-- **Video Emotion Recognition**: Analyze facial expressions in videos using computer vision techniques.  
+- **Emotion Recognition**: Extract emotional cues from both audio and video using state-of-the-art pretrained open-source models.  
 - **Interactive UI**: Gradio-powered interface for real-time emotion detection.  
-- **Dockerized Environment**: Fully containerized setup for reproducible deployments.  
-- **Scalable Microservice Architecture**: Easily extendable if neede to use other models via FastAPI and Docker Compose with support for GPU acceleration.
+- **Scalable Microservice Architecture**: Easily extendable if needed to use other models via FastAPI and Docker Compose.
 
 ---
 
