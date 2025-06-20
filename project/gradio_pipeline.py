@@ -26,7 +26,7 @@ def analyze(file_path: str, min_spk: int, max_spk: int, return_as_file: bool):
     records = audio_emotion_model.analyze_file(audio_path=audio_path, segments=records)
 
     if file_path.endswith(".mp4"):
-        video_emotion_model = VideoEmotionDetectionYOLOInferencer(device=device, path_to_yolo='/home/llm_agent/video_audio_pipeline/project/video_emo_service/yolov11n-face.pt')
+        video_emotion_model = VideoEmotionDetectionYOLOInferencer(device=device, path_to_yolo='project/video_emo_service/yolov11n-face.pt')
         records = video_emotion_model.inference(video_path=file_path, segments=records)
 
     os.remove(audio_path)
