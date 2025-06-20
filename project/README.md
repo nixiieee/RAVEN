@@ -75,7 +75,7 @@ make stop
 
 The pipeline above is recommeneded. However the script can be run without docker using local environment (see below).
 
---
+---
 
 ## Usage
 
@@ -111,5 +111,4 @@ pip install -r requirements.txt
 python3 project/gradio_pipeline.py
 ```
 
-This will open a local Gradio interface at `http://localhost:7860` for real-time emotion recognition from audio or video (`.mp3`, `.mp4` and `.wav` formats are supported).
---
+This will open a local Gradio interface at `http://localhost:7860` for real-time emotion recognition from audio or video (`.mp3`, `.mp4` and `.wav` formats are supported). 
