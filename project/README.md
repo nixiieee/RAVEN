@@ -1,7 +1,7 @@
 
 # Inference Module
 
-This directory contains the main parts used for pipeline deployments.
+This directory contains the main parts used for pipeline deployments. 
 
 ## 📁 Project Structure
 
@@ -27,7 +27,7 @@ project
 │   ├── app.py
 │   ├── Dockerfile
 │   ├── __init__.py
-│   ├── videoemo_inference.py
+│   ├── videoemo_inference.py 
 │   └── yolov11n-face.pt
 ├── docker-compose.yml
 ├── Dockerfile.base
@@ -49,6 +49,11 @@ project
     ```bash
     HUGGINGFACEHUB_API_TOKEN=your_token_here
     ```
+
+## 📐 Structure
+
+The main inference classes are stored in `*_inference.py` files. If you want to use different models then those defined in `app.py` files, you can change the script accordingly and just import a different class. The same goes when needeed to use model for inference outside of the main pipeline.
+
 ## 🚀 Quickstart
 
 | Target              | Description                                                                                  |
@@ -73,7 +78,7 @@ make up
 make stop
 ```
 
-The pipeline above is recommeneded. However the script can be run without docker using local environment (see below).
+The pipeline for startup defined above is recommeneded. However the script can be run without docker using local environment (see below).
 
 ---
 

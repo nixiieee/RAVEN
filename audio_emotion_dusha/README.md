@@ -18,14 +18,6 @@ audio_emotion_dusha/
 ├── ved_evaluate.ipynb          # Evaluation notebook for testing models on different datasets
 ```
 
-## ⚙️ Setup (Local)
-
-```bash
-uv venv --python 3.11
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-uv pip install -r requirements.txt
-```
-
 ## 🤗 Hugging Face Resources
 
 - Dataset: [`nixiieee/dusha_balanced`](https://huggingface.co/datasets/nixiieee/dusha_balanced)  
@@ -33,6 +25,17 @@ uv pip install -r requirements.txt
 - Whisper large-v3-turbo classifier: ['nixiieee/whisper-large-v3-emotion-classifier-dusha'](https://huggingface.co/nixiieee/whisper-large-v3-emotion-classifier-dusha)
 - GigaAM classifier: ['nixiieee/gigaam-rnnt-emotion-classifier-dusha'](https://huggingface.co/nixiieee/gigaam-rnnt-emotion-classifier-dusha)
 
+## 📊 Results 
+
+TODO
+
+## ⚙️ Setup (Local)
+
+```bash
+uv venv --python 3.11
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+uv pip install -r requirements.txt
+```
 
 ## 📚 Notebooks
 
@@ -42,10 +45,5 @@ uv pip install -r requirements.txt
 ## </> Scripts
 
 * `train_gigaam.py`: Trains an emotion classifier using the GigaAM architecture.
-* `train_whisper_mlp.py`: Trains an emotion classifier using encoder from Whisper and trains a separate MLP classifier.
-* `train_whisper_simple.py`: Minimal setup for training directly on Whisper encoder outputs.
-
-## 📝 Notes
-
-* Results from this module are intended to be exported and used in the `project/audio_emo_service/` folder for inference.
-* You can manually copy model weights or export ONNX versions depending on deployment strategy.
+* `train_whisper_mlp.py`: Trains an emotion classifier using encoder from Whisper and MLP classifier.
+* `train_whisper_simple.py`: Trains an emotion classifier using encoder from Whisper and AutoClassifier head from transformers library.

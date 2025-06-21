@@ -15,7 +15,7 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 
 ## 📋 Prerequisites
 
-- Python 3.11 and uv
+- Python 3.11
 - [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) for containerized setup  
 - A Hugging Face API token (stored in `.env` file)  
 
