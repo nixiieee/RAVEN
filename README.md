@@ -2,11 +2,8 @@
 
 RAVEN is a multimodal system for recognizing emotional nuances in both audio and video streams in Russian. The project leverages pretrained open-source models for text transcription and audio and video emotion recognition for further recording analysis, all wrapped in an interactive mircoservice app with Gradio web interface.
 
----
-
 ![App Scheme](scheme.png)
 
----
 
 ## 🌟 Features
 
