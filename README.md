@@ -4,6 +4,7 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 
 ![App Scheme](scheme.png)
 
+More about experiments with the models can be found in [`audio_emotion_dusha`](audio_emotion_dusha) and [`asr_model`](asr_model) folders.
 
 ## 🌟 Features
 
