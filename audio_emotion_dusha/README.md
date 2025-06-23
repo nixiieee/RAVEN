@@ -1,4 +1,3 @@
-
 # Training & Evaluation of Emotion Classifiers
 
 This directory contains the experimental and training pipeline for the audio emotion recognition component used in the general pipeline. It includes scripts for model training, evaluation, and data preprocessing. This is a research-focused module, not intended for production deployment.
@@ -16,6 +15,8 @@ audio_emotion_dusha/
 ├── train_whisper_mlp.py        # Training script for Whisper encoder + MLP classifier
 ├── train_whisper_simple.py     # Baseline Whisper encoder-based classifier training
 ├── ved_evaluate.ipynb          # Evaluation notebook for testing models on different datasets
+├── MC_dropout.ipynb            # Analysis of the classifier using MC Dropout method
+├── bootstrap.ipynb             # Bootstrap for the best classifier
 ```
 
 ## 🤗 Hugging Face Resources
@@ -47,6 +48,8 @@ uv pip install -r requirements.txt
 
 * `preprocess_data.ipynb`: Used to format raw audio dataset DUSHA.
 * `ved_evaluate.ipynb`: Used for analyzing model performance and comparing different approaches.
+* `MC_dropout.ipynb`: Evaluation of the best model (GigaAM MLP classifier) using MC Dropout method
+* `bootstrap.ipynb`: Evaluation of the best model (GigaAM MLP classifier) using bootstrapping
 
 ## </> Scripts
 
