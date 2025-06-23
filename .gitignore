@@ -1,0 +1,13 @@
+wandb
+.gradio
+data
+EmotiEffLib
+archive
+yolov11n-face.pt
+stt*
+whisper*
+requirements*
+*copy.ipynb
+__pycache__
+asr_evaluate.ipynb
+GigaAM
