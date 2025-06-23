@@ -22,12 +22,18 @@ audio_emotion_dusha/
 
 - Dataset: [`nixiieee/dusha_balanced`](https://huggingface.co/datasets/nixiieee/dusha_balanced)  
 - Whisper small classifier: [`nixiieee/whisper-small-emotion-classifier-dusha`](https://huggingface.co/nixiieee/whisper-small-emotion-classifier-dusha)
-- Whisper large-v3-turbo classifier: ['nixiieee/whisper-large-v3-emotion-classifier-dusha'](https://huggingface.co/nixiieee/whisper-large-v3-emotion-classifier-dusha)
-- GigaAM classifier: ['nixiieee/gigaam-rnnt-emotion-classifier-dusha'](https://huggingface.co/nixiieee/gigaam-rnnt-emotion-classifier-dusha)
+- Whisper large-v3-turbo classifier: [`nixiieee/whisper-large-v3-emotion-classifier-dusha`](https://huggingface.co/nixiieee/whisper-large-v3-emotion-classifier-dusha)
+- GigaAM classifier: [`nixiieee/gigaam-rnnt-emotion-classifier-dusha`](https://huggingface.co/nixiieee/gigaam-rnnt-emotion-classifier-dusha)
 
 ## 📊 Results 
 
-TODO
+| Model                            | Weighted Accuracy | Unweighted Accuracy | F1 Score |
+|----------------------------------|-------------------|----------------------|----------|
+| Whisper small base classifier    | 0.71              | 0.71                 | 0.74     |
+| Whisper small MLP classifier     | 0.79              | 0.77                 | 0.80     |
+| Whisper large-v3-turbo MLP       | 0.82              | 0.79                 | 0.81     |
+| GigaAM MLP classifier            | 0.84              | 0.82                 | 0.84     |
+| GigaAM-Emo (Sber)                | 0.72              | 0.87                 | 0.71     |
 
 ## ⚙️ Setup (Local)
 
