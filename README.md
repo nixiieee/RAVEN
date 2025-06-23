@@ -4,6 +4,10 @@ RAVEN is a multimodal system for recognizing emotional nuances in both audio and
 
 ---
 
+![App Scheme](scheme.png)
+
+---
+
 ## 🌟 Features
 
 - **STT**: Get text transcription from audio or video.
