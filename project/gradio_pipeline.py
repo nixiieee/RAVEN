@@ -11,22 +11,26 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 HF_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"]
 
+# import models
+
+transcriber = GigaamCtcInferencer(model_name="waveletdeboshir/gigaam-ctc-with-lm",
+                                      device=device)
+
+audio_emotion_model = GigaEmotionInferencer(device=device)
+
+video_emotion_model = VideoEmotionDetectionYOLOInferencer(device=device, path_to_yolo='project/video_emo_service/yolov11n-face.pt')
+
 def analyze(file_path: str, min_spk: int, max_spk: int, return_as_file: bool):
     try:
         audio_path = prepare_audio(file_path=file_path)
     except AudioConversionError as e:
         raise gr.Error(str(e))
-
-    transcriber = GigaamCtcInferencer(model_name="waveletdeboshir/gigaam-ctc-with-lm",
-                                      device=device)
     
     records = transcriber.transcribe_file(audio_path, min_speakers=max(min_spk, 1), max_speakers=max(max_spk, 1))
 
-    audio_emotion_model = GigaEmotionInferencer(device=device)
     records = audio_emotion_model.analyze_file(audio_path=audio_path, segments=records)
 
     if file_path.endswith(".mp4"):
-        video_emotion_model = VideoEmotionDetectionYOLOInferencer(device=device, path_to_yolo='project/video_emo_service/yolov11n-face.pt')
         records = video_emotion_model.inference(video_path=file_path, segments=records)
 
     os.remove(audio_path)

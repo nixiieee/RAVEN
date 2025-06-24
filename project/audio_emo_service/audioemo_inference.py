@@ -19,7 +19,7 @@ import soundfile as sf
 import ffmpeg
 import librosa
 
-from models import ModelForEmotionClassification
+from .models import ModelForEmotionClassification
 
 import gigaam
 
